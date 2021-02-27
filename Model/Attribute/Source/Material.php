@@ -16,7 +16,6 @@ class Material extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
     {
         if (!$this->_options) {
             $this->_options = [
-                ['label' => __(''), 'value' => '0'],
                 ['label' => __('Top'), 'value' => '1'],
                 ['label' => __('Bottom'), 'value' => '2'],
                 ['label' => __('Left'), 'value' => '3'],

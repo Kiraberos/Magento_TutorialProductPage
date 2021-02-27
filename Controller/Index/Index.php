@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2019. MonteShot
+ * Copyright (c) 2019.
  */
 
 namespace Perspectivee\TutorialProductPage\Controller\Index;

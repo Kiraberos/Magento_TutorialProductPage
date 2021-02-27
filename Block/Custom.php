@@ -2,15 +2,12 @@
 
 namespace Perspectivee\TutorialProductPage\Block;
 
-use Magento\Eav\Model\Entity\Attribute;
-
-
 class Custom extends \Magento\Catalog\Block\Product\View
 {
-    // /** @var \Perspectivee\TutorialProductPage\Helper\Custom  */
-    // protected $_customHelper;
+    //  /** @var \Perspectivee\TutorialProductPage\Helper\Custom  */
+    //  protected $_customHelper;
 
-    // public function __construct(
+    //  public function __construct(
     //     \Magento\Catalog\Block\Product\Context $context,
     //     \Magento\Framework\Url\EncoderInterface $urlEncoder,
     //     \Magento\Framework\Json\EncoderInterface $jsonEncoder,
@@ -23,9 +20,9 @@ class Custom extends \Magento\Catalog\Block\Product\View
     //     \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency,
     //     \Perspectivee\TutorialProductPage\Helper\Custom $customHelper,
     //     array $data = []
-    // ) {
-    //     $this->_customHelper = $customHelper;
-    //     parent::__construct(
+    //  ) {
+    //      $this->_customHelper = $customHelper;
+    //      parent::__construct(
     //         $context,
     //         $urlEncoder,
     //         $jsonEncoder,
@@ -37,21 +34,25 @@ class Custom extends \Magento\Catalog\Block\Product\View
     //         $productRepository,
     //         $priceCurrency,
     //         $data);
-    // }
-
-    /**
-     * Get any value for our template
-     *
-     * @return string
-     */
+    //  }
+ 
+     /**
+      * Get any value for our template
+      *
+      * @return string
+      */
     public function getAnyCustomValue()
     {
         $_product = $this->getProduct();
         $attributes = $_product->getAttributes();
-        $positionLabel = $attributes['tutorial_product_page']->getFrontendLabel();
-        $positionAttribute = $attributes['tutorial_product_page']->getFrontend()->getValue($_product);
-        return "<b>" . $positionLabel . ": ". "</b>". $positionAttribute;
+        $positionAttribute = null;
 
+        if (array_key_exists('tutorial_product_page', $attributes)){
+
+            $positionAttribute = $attributes['tutorial_product_page']->getFrontend()->getValue($_product);
+
+        }
+        return  $positionAttribute;
     }
 
     
@@ -61,7 +62,7 @@ class Custom extends \Magento\Catalog\Block\Product\View
     //  */
     // public function isAvailable()
     // {
-    //     $currentProduct = $this->getProduct();
-    //     return $this->_customHelper->validateProductBySku($currentProduct->getSku());
+    //     $$attributes = $this->getProduct();
+    //     return $this->_customHelper->validateProductBySku($attributes->getSku());
     // }
 }
